@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import "@fontsource/poppins";
+---
+
+<Layout title="Lista E 2023">
+	<main>
+		<h1> Gostavas de contribuir para a tua lista? Deixa uma <b>sugestão</b> na caixa abaixo!</h1>
+
+        <textarea placeholder="Escreve aqui a tua sugestão..."></textarea>
+
+        <button class="submit-button">Submeter</button>
+	</main>
+</Layout>
+
+<style>
+    
+
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+        height: 100vh;
+    }
+
+    .submit-button{
+        font-family: "Poppins";
+        border: 1px solid var(--roxo-escuro);
+        border-radius: 5px;
+        padding: 1rem 4rem 1rem 4rem;
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin: auto 0;
+        background-color: var(--amarelo-escuro);
+        color: var(--roxo-escuro);
+        cursor: pointer;
+    }
+
+    .submit-button:hover{
+        background-color: var(--roxo-medio);
+        color: white;
+    }
+
+    textarea{
+        width: 80%;
+        font-family: "Poppins";
+        height: 20rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 1rem;
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin: auto 0;
+    }
+    ::placeholder {
+        color: #999;
+        font-family: "Poppins";
+        font-size: 1.5rem;
+        font-weight: 300;
+        
+    }
+    b{
+        font-weight:  700;
+    }
+    h1{
+        font-size: 4rem;
+        font-weight: 400;
+        text-align: center;
+    }
+	
+</style>

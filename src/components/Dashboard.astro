@@ -1,23 +1,14 @@
 ---
-export interface Props {
-	slogan: string;
-    links: {
-        href: string;
-        title: string;
-        body: string;
-    }[];
-}
-
-const { href, title, body } = Astro.props;
 ---
-<div class="dashboard">
-    <button class="dashboard-button">Open Dashboard</button>
-    <div class={`dashboard-content${dashboardOpen ? ' open' : ''}`}>
-      <!-- Dashboard content goes here -->
-    </div>
-  </div>
+  <nav class="dashboard">
+    <p>  <a href="./programa/">programa</a> </p>
+    <p>  <a href="./calendario-eleitoral/">Calendario Eleitoral</a> </p>
+    <p>  <a href="./manifesto/">manifesto</a> </p>
+    <p>  <a href="./sugestoes/">Sugestoes</a> </p>
+  </nav>
 
   <style>
+    
     .dashboard-content {
       display: none;
     }
@@ -30,18 +21,3 @@ const { href, title, body } = Astro.props;
       cursor: pointer;
     }
   </style>
-
-  <script>
-    export default {
-      data() {
-        return {
-          dashboardOpen: false,
-        };
-      },
-      methods: {
-        toggleDashboard() {
-          this.dashboardOpen = !this.dashboardOpen;
-        },
-      },
-    };
-  </script>
