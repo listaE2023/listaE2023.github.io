@@ -1,0 +1,47 @@
+---
+export interface Props {
+	slogan: string;
+    links: {
+        href: string;
+        title: string;
+        body: string;
+    }[];
+}
+
+const { href, title, body } = Astro.props;
+---
+<div class="dashboard">
+    <button class="dashboard-button">Open Dashboard</button>
+    <div class={`dashboard-content${dashboardOpen ? ' open' : ''}`}>
+      <!-- Dashboard content goes here -->
+    </div>
+  </div>
+
+  <style>
+    .dashboard-content {
+      display: none;
+    }
+
+    .dashboard-content.open {
+      display: block;
+    }
+
+    .dashboard-button {
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    export default {
+      data() {
+        return {
+          dashboardOpen: false,
+        };
+      },
+      methods: {
+        toggleDashboard() {
+          this.dashboardOpen = !this.dashboardOpen;
+        },
+      },
+    };
+  </script>
