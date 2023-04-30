@@ -1,0 +1,46 @@
+---
+export interface Props {
+	pilar_name: string;
+
+	
+}
+
+const {pilar_name } = Astro.props;
+---
+
+<div class="pilar">
+    <div class="pilar-title">
+        <h1>{pilar_name}</h1>
+    </div>
+    <div class="pilar-text">
+        <slot />
+    </div>
+
+</div>
+<style>
+    .pilar-title{
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        background-color: var(--amarelo-escuro);
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+    .pilar-text{
+        text-align: justify;
+        width: 100%;
+        height: 65vh;
+        background-color: var(--roxo-claro);
+        color: var(--branco);
+        padding: 0 1rem;
+        
+    }
+	.pilar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        padding: 0 1rem;
+    }
+</style>

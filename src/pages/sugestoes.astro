@@ -8,7 +8,7 @@ import "@fontsource/poppins";
 		<h1> Gostavas de contribuir para a tua lista? Deixa uma <b>sugestão</b> na caixa abaixo!</h1>
 
         <textarea placeholder="Escreve aqui a tua sugestão..."></textarea>
-
+       
         <button class="submit-button">Submeter</button>
 	</main>
 </Layout>
@@ -71,3 +71,30 @@ import "@fontsource/poppins";
     }
 	
 </style>
+<script>
+    import FirebaseSingleton from '../firebase.js'
+    import { collection, addDoc } from 'firebase/firestore'
+
+    await FirebaseSingleton.initialize();
+    const submitButton = document.querySelector(".submit-button");
+    const textArea = document.querySelector("textarea");
+
+    submitButton.addEventListener("click", () => {
+        if(textArea.value.length > 0){
+            // Create a new document in the "myCollection" collection with the textarea value
+            
+            const sugestao = textArea.value;
+            FirebaseSingleton.getFirestoreInstance().then(
+                firestore => {
+                    
+                    addDoc(collection(firestore, "sugestoes"), {
+                        sugestao: sugestao
+                     });
+                }
+               
+            ).catch(error => console.log(error));
+            textArea.value = "";
+            alert("Obrigado pela tua sugestão!");
+        }
+    })
+</script>
