@@ -10,7 +10,7 @@ const firebaseConfig = {
   apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
   authDomain: import.meta.env.PUBLIC_AUTH_DOMAIN,
   projectId: import.meta.env.PUBLIC_PROJECT_ID,
-  messagingSenderId: import.meta.env.MESSAGING_SENDER_ID,
+  messagingSenderId: import.meta.env.PUBLIC_MESSAGING_SENDER_ID,
   storageBucket: import.meta.env.PUBLIC_STORAGE_BUCKET,
   appId: import.meta.env.PUBLIC_APP_ID,
 }
