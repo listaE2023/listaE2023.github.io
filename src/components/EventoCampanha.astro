@@ -1,0 +1,79 @@
+---
+export interface Props {
+	dia_semana: string;
+    data : string;
+    horas: string[];
+    locais: string[];
+    eventos_nome: string[];
+    icons_src : string[];
+   
+	
+}
+
+const {dia_semana, data, horas, locais, eventos_nome, icons_src} = Astro.props;
+---
+
+<main>
+    <div class="dia-evento">
+        <h2>{dia_semana} - {data}</h2>
+    </div>
+    
+    {eventos_nome.map((evento, index) => {
+        return (
+            <div class="evento-detalhes">
+                <span class="evento-hora">{horas[index]}</span>
+                <div class="evento-main">
+                    <span class="evento-nome">{eventos_nome[index]}</span>
+                    <span class="evento-local">{locais[index]}</span>
+                </div>
+                
+                <img class="evento-icon" src={icons_src[index]} />
+                
+            </div>
+        )
+    })
+    }
+</main>
+<style>
+    .evento-icon{
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    .evento-detalhes{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto 0;
+        margin-bottom: 15px;
+        background-color: var(--amarelo-escuro);
+        padding: 20px;
+    }
+    .evento-nome{
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+    .evento-main{
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+        justify-content: center;
+        align-items: center;
+    }
+    main{
+        width: 80%;
+        margin: auto;
+    }
+    h2{
+        font-weight: 200;
+        padding: 10px;
+    }
+    .dia-evento{
+        background-color: var(--roxo-escuro);
+        width: 100%;
+        color: white;
+        margin: auto 0;
+        margin-bottom: 10px;
+    }
+</style>

@@ -10,7 +10,7 @@ const {pilar_name } = Astro.props;
 
 <div class="pilar">
     <div class="pilar-title">
-        <h1>{pilar_name}</h1>
+        <h2>{pilar_name}</h2>
     </div>
     <div class="pilar-text">
         <slot />
@@ -18,6 +18,12 @@ const {pilar_name } = Astro.props;
 
 </div>
 <style>
+    h2{
+		font-size: 2rem;
+		font-weight: 600;
+		margin: 0;
+		color: var(--roxo-escuro);
+	}
     .pilar-title{
         text-align: center;
         width: 100%;
@@ -40,7 +46,7 @@ const {pilar_name } = Astro.props;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #fff;
+        background-color: #f3f3f3;
         padding: 0 1rem;
     }
 </style>
