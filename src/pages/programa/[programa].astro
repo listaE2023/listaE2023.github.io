@@ -58,8 +58,10 @@ const { programa } = Astro.params;
     const amarelo_escuro = "#FFEE70"
 	
     const departamentoNome = document.getElementById('departamento-nome').innerText.toLowerCase()
-    await FirebaseSingleton.initialize();
-    FirebaseSingleton.getFirestoreInstance().then(
+
+    FirebaseSingleton.initialize().then(
+        firebase => {
+            FirebaseSingleton.getFirestoreInstance().then(
                     firestore => {
                         getDoc(doc(firestore,"programa",departamentoNome)).then(
                             doc => {
@@ -138,5 +140,10 @@ const { programa } = Astro.params;
                         console.log('Error getting Firestore instance:', error)
                     }
                 )
-    
+        }
+    ).catch(
+        error => {
+            console.log('Error initializing Firebase:', error)
+        }
+    )
     </script>
