@@ -1,23 +1,21 @@
 ---
-export interface Props {
-	slogan: string;
-    links: {
-        href: string;
-        title: string;
-        body: string;
-    }[];
-}
-
-const { href, title, body } = Astro.props;
+const BASE_URL = "/listaE2023.github.io"
 ---
-<div class="dashboard">
-    <button class="dashboard-button">Open Dashboard</button>
-    <div class={`dashboard-content${dashboardOpen ? ' open' : ''}`}>
-      <!-- Dashboard content goes here -->
-    </div>
-  </div>
+  <nav class="dashboard">
+    <p>  <a href= {BASE_URL + "/"}>Pagina inicial</a> </p>
+    <p>  <a href={BASE_URL + "/programa"}>programa</a> </p>
+    <p>  <a href= {BASE_URL + "/calendario-eleitoral"}>Calendario Eleitoral</a> </p>
+    <p>  <a href= {BASE_URL + "/manifesto"}>manifesto</a> </p>
+    <p>  <a href= {BASE_URL + "/sugestoes"}>Sugestoes</a> </p>
+    <p>  <a href= {BASE_URL + "/crosswords"}>Crossword</a> </p>
+    <p>  <a href= {BASE_URL + "/quem-somos"}>Quem somos</a> </p>
+  </nav>
 
   <style>
+    a{
+      color: white;
+    }
+
     .dashboard-content {
       display: none;
     }
@@ -30,18 +28,3 @@ const { href, title, body } = Astro.props;
       cursor: pointer;
     }
   </style>
-
-  <script>
-    export default {
-      data() {
-        return {
-          dashboardOpen: false,
-        };
-      },
-      methods: {
-        toggleDashboard() {
-          this.dashboardOpen = !this.dashboardOpen;
-        },
-      },
-    };
-  </script>

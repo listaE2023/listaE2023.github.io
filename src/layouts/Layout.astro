@@ -1,4 +1,7 @@
 ---
+import Dashboard from '../components/Dashboard.astro';
+import "@fontsource/poppins";
+
 export interface Props {
 	title: string;
 }
@@ -11,22 +14,71 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/twitter_icon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<div class="container">
+
+			<Dashboard class="dashboard"/>
+			<div class="slot">
+
+				<slot />
+			</div>
+			
+		</div>
 	</body>
 </html>
 <style is:global>
+	h1{
+		font-size: 3rem;
+		font-weight: 600;
+		margin: 0;
+		color: var(--roxo-escuro);
+	}
+	.container{
+		display: flex;
+	
+	}
+	.dashboard {
+      top: 0;
+      left: 0;
+      float: left;
+      position: fixed;
+      width: 15%;
+      height: 100%;
+      background: var(--roxo-escuro);
+	
+      z-index: 9999;
+	  padding: 10px;
+      overflow: auto;
+      transition: all 0.3s ease-in-out;
+     
+    }
+
+	.slot {
+		box-sizing: border-box;
+		padding: 20px;
+		position: absolute;
+		left: 15%;
+		right: 0%;
+		float: right;
+		
+	}
+
 	:root {
 		--accent: 124, 58, 237;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+		--roxo-escuro: #311547;
+		--roxo-claro: #CFB6E2;
+		--roxo-medio: #4C216E;
+		--amarelo-claro: #FFF4A3;
+ 		--amarelo-escuro: #FFEE70;
 	}
 	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
+		font-family: "Poppins";
+		background-color: #f3f3f3;
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,

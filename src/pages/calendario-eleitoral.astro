@@ -1,0 +1,31 @@
+---
+import EventoCampanha from "../components/EventoCampanha.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Lista E 2023">
+    <h1>CALENDÁRIO ELEITORAL</h1>
+
+    <EventoCampanha data="17/5"
+     dia_semana="Quarta-feira" eventos_nome={["Apresentação/Lanchinho"]}
+      horas={["15:00"]} icons_src={["/twitter_icon.svg"]} locais={["Jardim da FEUP"]}>
+    </EventoCampanha>
+
+   
+    <EventoCampanha data="18/5"
+     dia_semana="Quinta-feira" eventos_nome={["Apresentação/Lanchinho", "Outra cena"]}
+      horas={["15:00", "18:00"]} icons_src={["/twitter_icon.svg","/programa.svg" ]} locais={["Jardim da FEUP", "Já Lá Foste"]}>
+    </EventoCampanha>
+
+    
+</Layout>
+  
+<script>
+   
+</script>
+<style>
+    h1 {
+        text-align: center;
+    }
+   
+</style>

@@ -1,0 +1,78 @@
+---
+export interface Props {
+	img_src: string;	
+    departamento: string;
+}
+
+const {img_src, departamento} = Astro.props;
+---
+
+<div class='centerDiv'>
+    <figure itemprop="image">
+        <img src={img_src} alt="Programa" />
+        <figcaption>
+            <a class="ver-mais" href={"./programa/" + departamento}>Ver Mais</a>
+       </figcaption>
+    </figure>
+    </div>
+<style>
+
+    a{
+        text-decoration: none;
+    }
+    figure img{
+        width: 100%;
+    }
+
+
+    .centerDiv{
+        display: flex;
+        justify-content: center;
+    }
+
+    figure {   
+        position: relative;
+        margin-bottom: 5vh;
+        max-width: 420px;
+        transition: transform .2s;
+        max-height: 420px;
+    }
+
+    figure::before {
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        text-align: center;
+    }
+
+    figure:hover figcaption {
+        transition: opacity .7s ease-in-out;
+        opacity: 1;
+    }
+
+    figure:hover{
+        transform: scale(1.1);
+    }
+
+    figure figcaption  {
+        text-align: center;
+        align-content: center;
+        z-index: 1;
+        bottom: 2vh;
+        width: 100%;
+        position: absolute;
+        opacity: 0;
+    }
+
+    .ver-mais{
+        background-color: var(--roxo-escuro);
+        color: white;
+        padding: 5px 10px 5px 10px;
+        border-radius: 5px;
+        font-size: 1em;
+        transition: background-color .2s;
+    }
+
+</style>

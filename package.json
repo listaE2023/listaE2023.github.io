@@ -10,6 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.1.5"
+    "@fontsource/poppins": "^4.5.10",
+    "astro": "^2.1.5",
+    "firebase": "^9.21.0"
   }
 }

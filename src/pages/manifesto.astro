@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Pilar from "../components/Pilar.astro";
+---
+
+<Layout title="Lista E 2023">
+    <h1>MANIFESTO</h1>
+
+<div class="swiper">
+    
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">
+        <Pilar pilar_name="Ensino para Todos">
+            <p> Acreditamos que o ensino superior não deve ter barreiras.
+                 A FEUP deve ser uma faculdade inclusiva e em que todos são 
+                 respeitados e tratados como iguais. Rejeitamos o machismo, o racismo, a xenofobia, a homofobia 
+                 e os entraves socioeconómicos ao estudo. Os trabalhadores-estudantes e os estudantes internacionais não podem 
+                 ser excluídos das decisões sobre a avaliação e o funcionamento da Faculdade. Trabalharemos em prol de uma cultura de 
+                 igualdade e para que o interesse dos estudantes 
+                seja a principal linha orientadora da nossa ação, sem receio de nos impor perante quem seja. </p>
+        </Pilar>
+      </div>
+      <div class="swiper-slide">
+        <Pilar pilar_name="Ensino com Dignidade">
+            <p> 
+                A qualidade da formação é essencial para o nosso futuro e deve ser assegurada, garantindo condições dignas e 
+                favoráveis a que os estudantes consigam obter os melhores resultados académicos, sem descuidar momentos de lazer,
+                 fruição e produção cultural. Para tal, é imprescindível a disponibilidade de locais de estudo, horários adequados a 
+                 todos os membros da Faculdade e professores qualificados e dedicados. O acesso justo ao mestrado, essencial para a nossa formação,
+                 será uma prioridade absoluta. Lutaremos sempre no sentido de avançar, nunca recuar, os direitos dos estudantes.
+            </p>
+        </Pilar>
+      </div>
+      <div class="swiper-slide">
+        <Pilar pilar_name="Ensino Democrático">
+            <p> 
+                Os estudantes são os principais interessados num ensino de qualidade, uma vez que isso beneficiará o seu 
+                futuro não só como profissionais, mas também como cidadãos. Assim sendo, a participação integral dos estudantes nas 
+                decisões e a auscultação dos seus problemas é fundamental para o bom funcionamento de uma faculdade. Acreditamos que o
+                ensino deve, acima de tudo, responder às necessidades dos estudantes e que a AEFEUP tem um papel essencial em tornar isso uma
+                realidade. Para isso, é necessário manter um contacto ativo e de base com os estudantes, procurando ouvi-los e compreendê-los,
+                mantendo sempre clareza na nossa ação. É imperativo que a Associação de Estudantes tenha as portas abertas a todos e faça ouvir
+                aqueles que as instituições teimam em ignorar. Propomos, então, um processo de recrutamento aberto a todos, possibilitando que
+                qualquer um trabalhe ao nosso lado na construção de uma AE mais justa. Os estudantes têm de ter uma maior representação nos orgãos de
+                decisão da Universidade do Porto e da FEUP. Por isso, rejeitamos o atual Regime Jurídico do Ensino Superior e o Regime Fundacional
+                da Universidade do Porto, que 
+                reduzem a representatividade dos estudantes no Conselho Geral da UP e favorecem a das entidades privadas.
+            </p>
+        </Pilar>
+      </div>
+      
+    </div>
+    
+    <div class="swiper-pagination"></div>
+  
+    
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  
+ 
+    
+  </div>
+</Layout>
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script is:inline>
+    const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    });
+</script>
+<style>
+    p{
+        padding: 2rem;
+    }
+    h1{
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .swiper {
+    width: 80%;
+    height: 100%;
+    background-color: #f3f3f3;
+    }
+
+    .swiper-slide{
+        height: auto !important;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f3f3f3;
+    }
+</style>
