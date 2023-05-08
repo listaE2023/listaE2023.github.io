@@ -1,30 +1,67 @@
 ---
+import DashboardItem from "./DashboardItem.astro";
 
 ---
   <nav class="dashboard">
-    <p>  <a href= "/">Pagina inicial</a> </p>
-    <p>  <a href="/programa">programa</a> </p>
-    <p>  <a href= "/calendario-eleitoral">Calendario Eleitoral</a> </p>
-    <p>  <a href= "/manifesto">manifesto</a> </p>
-    <p>  <a href= "/sugestoes">Sugestoes</a> </p>
-    <p>  <a href= "/crosswords">Crossword</a> </p>
-    <p>  <a href=  "/quem-somos">Quem somos</a> </p>
+    
+    <div id="slogan">
+      <a href="/">
+        <img class="logo" src="/lista_logo.svg" alt="Logo da Lista"/>
+      </a>
+      <h2> Envolver os estudantes, evoluir juntos! </h2>
+    </div>
+
+    <div id="item-wrapper">
+      <DashboardItem route="/programa" logo="/programa.svg" name="Programa"/>
+      <DashboardItem route="/calendario-eleitoral" logo="/calendario_campanha.svg" name="Calendário"/>
+      <DashboardItem route="/manifesto" logo="/manifesto.svg" name="Manifesto"/>
+      <DashboardItem route="/sugestoes" logo="/sugestoes.svg" name="Sugestões"/>
+      <DashboardItem route="/crosswords" logo="/crosswords.svg" name="Crosswords"/>
+      <DashboardItem route="/quem-somos" logo="/quem-somos.svg" name="Quem somos"/>
+    </div>
+
+    <div id="social-media">
+      <DashboardItem route="https://www.instagram.com/joysigil/" logo="/instagram.svg" name=""/>
+      <DashboardItem route="https://twitter.com/zefluxo" logo="/twitter.svg" name=""/>
+    </div>
+
   </nav>
 
   <style>
-    a{
-      color: white;
+    #item-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 25px;
+      margin-inline: 25px;
+      padding-bottom: 100px;
     }
 
-    .dashboard-content {
-      display: none;
-    }
-
-    .dashboard-content.open {
+    .logo {
       display: block;
+      margin: auto;
     }
 
-    .dashboard-button {
-      cursor: pointer;
+    .item-logo {
+      size: 1rem;
     }
+
+    #slogan {
+      padding-top: 5%;
+    }
+
+    #slogan h2 {
+      color: white;
+      text-align: center;
+    }
+
+    #social-media {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      justify-content: center;
+      gap: 25px;
+      padding-bottom: 30px;
+    }
+
   </style>

@@ -1,0 +1,39 @@
+---
+export interface Props {
+    route: string;
+    logo: string;
+    name: string;
+}
+
+const { route, logo, name } = Astro.props;
+---
+<a href={route}>
+    <div>
+        <img src={logo} alt={name + " logo"} height="35" width="35"/>
+        <p> {name} </p>
+    </div>
+</a>
+
+<style>
+
+    p {
+        color: var(--roxo-medio);
+        margin: 0;
+    }
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+
+        background-color: white;
+        padding: 10px;
+        border-radius: 12px;
+    }
+
+    div:hover {
+        background-color: var(--amarelo-claro);
+    }
+</style>
