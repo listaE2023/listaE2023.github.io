@@ -6,9 +6,10 @@ export interface Props {
     locais: string[];
     eventos_nome: string[];
     icons_src : string[];
+    indexes: number[];
 }
 
-const {dia_semana, data, horas, locais, eventos_nome, icons_src} = Astro.props;
+const {dia_semana, data, horas, locais, eventos_nome, icons_src, indexes} = Astro.props;
 ---
 
 <main>
@@ -18,7 +19,7 @@ const {dia_semana, data, horas, locais, eventos_nome, icons_src} = Astro.props;
     
     {eventos_nome.map((evento, index) => {
         return (
-            <div class="evento-detalhes">
+            <div class="evento-detalhes" id={"evento-" + indexes[index]}>
                 <span class="evento-hora">{horas[index]}</span>
                 <div class="evento-main">
                     <span class="evento-nome">{eventos_nome[index]}</span>

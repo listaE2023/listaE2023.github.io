@@ -7,25 +7,78 @@ import Layout from "../layouts/Layout.astro";
     <h1>CALENDÁRIO ELEITORAL</h1>
 
     <EventoCampanha data="17/5"
-     dia_semana="Quarta-feira" eventos_nome={["Apresentação/Lanchinho"]}
-      horas={["15:00"]} icons_src={["/twitter_icon.svg"]} locais={["Jardim da FEUP"]}>
+     dia_semana="Quarta-feira" eventos_nome={["Apresentação & Lanchinho", "Noite do Filme"]}
+      horas={["15:00", "22:00"]} icons_src={["",""]} locais={["Jardim da FEUP", "Auditório B035"]}, indexes={[0,1]}>
     </EventoCampanha>
 
    
     <EventoCampanha data="18/5"
-     dia_semana="Quinta-feira" eventos_nome={["Apresentação/Lanchinho", "Outra cena"]}
-      horas={["15:00", "18:00"]} icons_src={["/twitter_icon.svg","/programa.svg" ]} locais={["Jardim da FEUP", "Já Lá Foste"]}>
+     dia_semana="Quinta-feira" eventos_nome={["Noite roxa"]}
+      horas={["22:00"]} icons_src={["" ]} locais={["Já Lá Foste"]}indexes={[2]}>
     </EventoCampanha>
 
+    <EventoCampanha data="19/5"
+     dia_semana="Sexta-feira" eventos_nome={["Tarde desportiva"]}
+      horas={["16:00"]} icons_src={["" ]} locais={["Jardim entre a FEUP e o Já Lá Foste"]} indexes={[3]}>
+    </EventoCampanha>
+
+    <EventoCampanha data="20/5"
+    dia_semana="Sábado" eventos_nome={["Live com os teus Vices"]}
+     horas={["15:00"]} icons_src={["instagram.svg" ]} locais={["Instagram"]} indexes={[4]}>
+   </EventoCampanha>
+
+   <EventoCampanha data="21/5"
+   dia_semana="Domingo" eventos_nome={["Live com a MAG e o CF"]}
+    horas={["15:00"]} icons_src={["instagram.svg" ]} locais={["Instagram"]} indexes={[5]}>
+  </EventoCampanha>
     
 </Layout>
   
 <script>
+  
+  function getNextDateFromList(dates) {
+      // Get the current time
+      var currentTime = new Date();
+
+      // Filter out the dates that are in the past
+      var futureDates = dates.filter(function(date) {
+        return date > currentTime;
+      });
+
+      // Sort the future dates in ascending order
+      futureDates.sort(function(a, b) {
+        return a - b;
+      });
+
+  
+      return dates.indexOf(futureDates[0]);
+    }
+
+    //event dates
+    var dateList = [
+      new Date('2023-05-17T15:00:00'),
+      new Date('2023-05-17T22:00:00'),
+      new Date('2023-05-18T22:00:00'), 
+      new Date('2023-05-19T16:00:00'), 
+      new Date('2023-05-20T15:00:00'), 
+      new Date('2023-05-20T15:00:00'), 
+    ];
+
+    // Get the next date from the current time
+    var nextEvent = getNextDateFromList(dateList);
+
+    var component = document.getElementById("evento-" + nextEvent);
+
+  
+    component.style.backgroundColor = "var(--roxo-claro)";
+    component.style.fontWeight = "bold";
+    component.style.fontSize = "1.5rem";
+    
    
 </script>
 <style>
     h1 {
         text-align: center;
     }
-   
+  
 </style>

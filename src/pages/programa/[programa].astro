@@ -2,10 +2,19 @@
 import Layout from "../../layouts/Layout.astro";
 export function getStaticPaths() {
   return [
+    {params: {programa: 'ação social'}},
+    {params: {programa: 'cooperação e estudantes'}},
+    {params: {programa: 'imagem e comunicação'}},
+    {params: {programa: 'informática'}},
+    {params: {programa: 'pedagogia e emprego'}},
+    {params: {programa: 'saúde e ambiente'}},
+    {params: {programa: 'conselho fiscal'}},
+    {params: {programa: 'cultural'}},
+    {params: {programa: 'desportivo'}},
     {params: {programa: 'recreativo'}},
-    {params: {programa: 'desporto'}},
-    {params: {programa: 'comunicação'}},
-    {params: {programa: 'pedagogia'}},
+    {params: {programa: 'logística'}},
+    {params: {programa: 'mag'}},
+
   ];
 }
 
@@ -56,25 +65,45 @@ const { programa } = Astro.params;
     const roxo_escuro = "#311547"
     const roxo_claro = "#CFB6E2"
     const amarelo_escuro = "#FFEE70"
-	
+
+    const departamentoMap ={
+        'ação social' : "Ação Social",
+        'cooperação e estudantes' : "Cooperação e Estudantes",
+        'imagem e comunicação' : "Imagem e Comunicação",
+        'informática' : "Informática",
+        'pedagogia e emprego' : "Pedagogia e Emprego",
+        'saúde e ambiente' : "Saúde e Ambiente",
+        'conselho fiscal' : "conselho fiscal",
+        'cultural' : "cultural",
+        'desportivo' : "desportivo",
+        'recreativo' : "recreativo",
+        'logística' : "logística",
+        'mag' : "mag",
+
+    } 
+  
     const departamentoNome = document.getElementById('departamento-nome').innerText.toLowerCase()
 
     FirebaseSingleton.initialize().then(
         firebase => {
             FirebaseSingleton.getFirestoreInstance().then(
                     firestore => {
-                        getDoc(doc(firestore,"programa",departamentoNome)).then(
+                        getDoc(doc(firestore,"programa",departamentoMap[departamentoNome])).then(
                             doc => {
                                 if (doc.exists()) {
                                     
                                     const data = doc.data()
                                     console.log(data)
                                     if(data.introducao){
-                                        document.getElementById('departamento-intro').innerText = data.introducao
+                                        document.getElementById('departamento-intro').innerHTML = data.introducao
+                                    }
+                                    if(data["section_titles"]){
+                                        data["section-titles"] = data["section_titles"]
+                                        data["section-texts"] = data["section_texts"]
                                     }
                                     if(data["section-titles"]){
                                         const seccoes = document.getElementById('departamento-seccoes')
-    
+                                        console.log("hi")
                                         for(let i = 0; i < data["section-titles"].length; i++){
                                             const seccaoDiv = document.createElement('div')
                                             seccaoDiv.classList.add('div-seccao')
