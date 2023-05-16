@@ -19,7 +19,7 @@ const firebaseConfig = {
 const promise = new Promise(res => resolve = res)
 
 export async function initialize () {
-  console.log(firebaseConfig)
+
   if (import.meta.env.SSR) return undefined
   if (firebaseInstance) return firebaseInstance
 

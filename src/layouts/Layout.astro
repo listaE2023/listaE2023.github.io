@@ -42,8 +42,9 @@ const { title } = Astro.props;
 	}
 	.container{
 		display: flex;
-	
 	}
+
+	
 
 	.dashboard {
 		display: flex;
@@ -66,11 +67,12 @@ const { title } = Astro.props;
 	.slot {
 
 		box-sizing: border-box;
-		padding: 20px;
 		position: absolute;
 		left: 25%;
 		right: 0%;
+		top:0;
 		float: right;
+		
 		
 	}
 
@@ -83,9 +85,29 @@ const { title } = Astro.props;
 		--amarelo-claro: #FFF4A3;
  		--amarelo-escuro: #FFEE70;
 	}
+
+	/* width */
+	::-webkit-scrollbar {
+	width: 10px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+	background: #888;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+	background: #555;
+	}
 	html {
 		font-family: "Poppins";
-		background-color: #f3f3f3;
+		
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
