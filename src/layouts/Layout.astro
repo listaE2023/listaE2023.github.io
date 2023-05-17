@@ -30,6 +30,7 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
+
 	a {
         text-decoration: none;
     }
@@ -43,26 +44,6 @@ const { title } = Astro.props;
 	.container{
 		display: flex;
 	}
-
-	
-
-	.dashboard {
-		display: flex;
-		flex-direction: column;
-		top: 0;
-		left: 0;
-		float: left;
-		position: fixed;
-		width: 25%;
-		height: 100vh;
-		background: var(--roxo-escuro);
-		
-		z-index: 9999;
-		overflow: auto;
-		transition: all 0.3s ease-in-out;
-		
-		justify-content: space-between;
-    }
 
 	.slot {
 

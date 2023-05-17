@@ -16,6 +16,12 @@ const { route, logo, name } = Astro.props;
 
 <style>
 
+    @media (max-width: 768px) {
+        p {
+            display: none;
+        }
+    }
+
     p {
         color: var(--roxo-medio);
         margin: 0;

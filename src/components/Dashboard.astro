@@ -28,17 +28,66 @@ import DashboardItem from "./DashboardItem.astro";
   </nav>
 
   <style>
+
+    @media (max-width: 768px) {
+
+      .dashboard {
+        flex-direction: row;
+        height: auto;
+      }
+
+      .logo {
+        display: block;
+        height: 80%;
+        width: auto;
+        margin: auto;
+      }
+      
+      #slogan h2{
+        display: none;
+      }
+
+      #item-wrapper {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: 80svh;
+      }
+
+
+    }
+
+    .dashboard {
+		  display: flex;
+		  flex-direction: column;
+		  top: 0;
+		  left: 0;
+		  float: left;
+		  position: fixed;
+		  width: 25%;
+		  height: 100vh;
+		  background: var(--roxo-escuro);
+      
+		  z-index: 9999;
+		  overflow: auto;
+		  transition: all 0.3s ease-in-out;
+      
+		  justify-content: space-between;
+    }
+
     #item-wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
-      gap: 25px;
+      gap: 1.2em;
       margin-inline: 25px;
-      padding-bottom: 100px;
+      padding-bottom: 5vh;
     }
 
     .logo {
       display: block;
+
+      width: 40%;
+      height: auto;
+
       margin: auto;
     }
 
@@ -63,7 +112,5 @@ import DashboardItem from "./DashboardItem.astro";
       gap: 25px;
       padding-bottom: 30px;
     }
-
-  
 
   </style>
