@@ -4,21 +4,29 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Lista E 2023">
 	<main id="index_main">
-		<img src="main_page_visual.png" />
+	
 	</main>
 </Layout>
 
 <style>
 	img{
-		width:80%;
-		height:80%;
-		object-fit: contain;
+		max-height: 100%;
+    	width: auto;
+
+	}
+	p{
+		min-height: 100%;
 	}
 	#index_main {
+
 		text-align: center;
+		background-image: url("/main_page_visual.png");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
 		background-color: var(--roxo-claro);
-		width: 100%;
-		height: 100%;
+		
+		height: 100vh;
 	}
 	
 </style>
