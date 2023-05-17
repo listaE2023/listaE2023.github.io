@@ -57,7 +57,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
         <h2 class="animated-component">Conselho Fiscal</h2>
-        <div class="direcao">
+        <div class="direcao fim-de-pagina">
             <div class="animated-component">
                 <img src="/pessoas/cf_presi.png" alt="Presidente do Conselho Fiscal" />
             </div>
@@ -67,7 +67,11 @@ import Layout from '../layouts/Layout.astro';
             <div class="animated-component">
                 <img src="/pessoas/cf_2.png" alt="2º Secretário do CF" />
             </div>
+
+            <p id="padding-paragraph"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero vel labore accusantium numquam quae quis at, fugit ipsa atque ratione quam dolores veniam quo minus, architecto est consequatur quas ab.</p>
+
             
+        
         </div>
 	</main>
 </Layout>
@@ -84,14 +88,21 @@ import Layout from '../layouts/Layout.astro';
         }
     }
 
+    .fim-de-pagina{
+        margin-bottom: 50px;
+    }
     .direcao{
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
         flex-wrap: wrap;
+        margin-bottom: 25px;
     }
 
+    #padding-paragraph{
+        color: transparent;
+    }
     .animated-component{
         opacity: 0;
         transform: translateY(50px);
@@ -154,6 +165,7 @@ var elements = document.querySelectorAll('.animated-component');
 window.addEventListener('scroll', function() {
   for (var i = 0; i < elements.length; i++) {
     if (isElementInViewport(elements[i])) {
+     
       elements[i].classList.add('animate');
     } else {
       elements[i].classList.remove('animate');
