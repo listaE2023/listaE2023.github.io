@@ -12,8 +12,8 @@ import DashboardItem from "./DashboardItem.astro";
     </div>
 
     <div id="item-wrapper">
-      <DashboardItem route="/programa" logo="/programa.svg" name="Programa"/>
       <DashboardItem route="/calendario-eleitoral" logo="/calendario_campanha.svg" name="Calendário"/>
+      <DashboardItem route="/programa" logo="/programa.svg" name="Programa"/>
       <DashboardItem route="/manifesto" logo="/manifesto.svg" name="Manifesto"/>
       <DashboardItem route="/sugestoes" logo="/sugestoes.svg" name="Sugestões"/>
       <DashboardItem route="/crosswords" logo="/crosswords.svg" name="Crosswords"/>
@@ -29,35 +29,10 @@ import DashboardItem from "./DashboardItem.astro";
 
   <style>
 
-    @media (max-width: 768px) {
-
-      .dashboard {
-        flex-direction: row;
-        height: auto;
-      }
-
-      .logo {
-        display: block;
-        height: 80%;
-        width: auto;
-        margin: auto;
-      }
-      
-      #slogan h2{
-        display: none;
-      }
-
-      #item-wrapper {
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: 80svh;
-      }
-
-
-    }
-
     .dashboard {
 		  display: flex;
 		  flex-direction: column;
+      justify-content: center;
 		  top: 0;
 		  left: 0;
 		  float: left;
@@ -75,8 +50,7 @@ import DashboardItem from "./DashboardItem.astro";
 
     #item-wrapper {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.2em;
       margin-inline: 25px;
       padding-bottom: 5vh;
@@ -112,5 +86,25 @@ import DashboardItem from "./DashboardItem.astro";
       gap: 25px;
       padding-bottom: 30px;
     }
+
+    @media (max-width: 768px) {
+
+    .logo {
+      display: block;
+      height: auto;
+      width: 75%;
+    }
+
+    #slogan h2{
+      display: none;
+    }
+
+    #item-wrapper {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      padding-bottom: svh;
+    }
+
+  }
 
   </style>
